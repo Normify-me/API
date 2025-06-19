@@ -1,6 +1,4 @@
-<div style="background-color: #333333; padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 20px;">
-  ![Normify Logo](https://normify.me/wp-content/uploads/2024/07/normify_logo.png.webp)
-</div>
+![Normify Logo](https://res.cloudinary.com/dvhsgzydx/image/upload/v1/static/images/favicons/normify_logo_cropped.33ab5f10799b.png)
 
 # Normify API Documentation
 
