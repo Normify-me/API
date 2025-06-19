@@ -193,12 +193,6 @@ The API is limited to 100 requests per minute per API key. A 429 status code wil
 
 The current API version is v1. All future changes will be provided through new versions to ensure backward compatibility.
 
-## Support
-
-For questions or issues, please contact:
-
-- **Email:** prang@normify.com
-
 ## Changelog
 
 ### v1.0.0 (2024-01-01)
