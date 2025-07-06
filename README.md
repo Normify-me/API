@@ -192,8 +192,3 @@ The API is limited to 100 requests per minute per API key. A 429 status code wil
 ## Versioning
 
 The current API version is v1. All future changes will be provided through new versions to ensure backward compatibility.
-
-## Changelog
-
-### v1.0.0 (2024-01-01)
-- Initial API documentation release
