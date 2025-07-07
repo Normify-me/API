@@ -31,12 +31,14 @@ Authorization: Bearer YOUR_API_KEY
 Send a post request to:
 
 **Endpoint** `https://app.normify.me/api/token/`
+
 **Content-Type** `application/json`
+
 **Body (raw json)**
 ```json
 {
     "email": "YOUREMAIL",
-    "password": YOURPASSWORD"
+    "password": "YOURPASSWORD"
 }
 ```
 
