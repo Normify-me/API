@@ -117,7 +117,7 @@ Further examples can be found in the [Example folder](./Examples/).
 ```
 
   curl -v -X POST https://app.normify.me/research/api/ultimate/ \
-  -H "Authorization: Bearer YOUR BEARER TOKEN" \
+  -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "identifier": "DIN_EN_ISO_9001_2015",
