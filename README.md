@@ -9,7 +9,7 @@ The Normify API allows you to retrieve current version dates and changes for law
 ## Base URL
 
 ```
-TBD
+https://app.normify.me/research/api/ultimate
 ```
 
 ## Headers
@@ -29,13 +29,16 @@ Authorization: Bearer YOUR_API_KEY
 #### How to get the bearer token
 
 Send a post request to:
-Endpoint: https://app.normify.me/api/token/
-Content-Type: application/json
-Body (raw json):
+
+**Endpoint** `https://app.normify.me/api/token/`
+**Content-Type** `application/json`
+**Body (raw json)**
+```json
 {
     "email": "YOUREMAIL",
     "password": YOURPASSWORD"
 }
+```
 
 This returns a JSON with a refresh token and an access token. Use the access token for authorization as the bearer token. It has a limited lifetime so it should be fetched once you start a new API request process.
 
@@ -112,7 +115,7 @@ Further examples can be found in the [Example folder](./Examples/).
 ```
 
   curl -v -X POST https://app.normify.me/research/api/ultimate/ \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NDg0MjY1LCJpYXQiOjE3NTE4OTIyNjUsImp0aSI6IjBhMDhmNGQ0NGExYzQ3YmE5NDM2OTczZTEwYWUwYjNlIiwidXNlcl9pZCI6NDl9.6yPf6x1A6gHxTc-hITgF2pFrOrzXag5aE9_cNvf0hJk" \
+  -H "Authorization: Bearer YOUR BEARER TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "identifier": "DIN_EN_ISO_9001_2015",
