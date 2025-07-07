@@ -12,7 +12,13 @@ The Normify API allows you to retrieve current version dates and changes for law
 TBD
 ```
 
-## Authentication
+## Headers
+
+```
+Content-Type: "application/json"
+```
+
+### Authentication
 
 The API uses API keys for authentication. Include your API key in the header of each request:
 
@@ -20,11 +26,24 @@ The API uses API keys for authentication. Include your API key in the header of 
 Authorization: Bearer YOUR_API_KEY
 ```
 
+#### How to get the bearer token
+
+Send a post request to:
+Endpoint: https://app.normify.me/api/token/
+Content-Type: application/json
+Body (raw json):
+{
+    "email": "YOUREMAIL",
+    "password": YOURPASSWORD"
+}
+
+This returns a JSON with a refresh token and an access token. Use the access token for authorization as the bearer token. It has a limited lifetime so it should be fetched once you start a new API request process.
+
 ## Endpoints
 
 ### Query Laws and Standards
 
-**POST** `/standards/check`
+**POST** `https://app.normify.me/research/api/ultimate`
 
 Checks the current version dates and changes for a law or standard.
 
@@ -32,127 +51,74 @@ Checks the current version dates and changes for a law or standard.
 
 ```json
 {
-  "id": "string",
-  "title": "string", 
-  "version_date": "YYYY-MM-DD"
+  "id": "int",
+  "identifier": "string",
+  "type": "string",
+  "short_title": "string", 
+  "version_date": "YYYY-MM-DD",
+  "last_change": "YYYY-MM-DD"
 }
 ```
 
 **Parameters:**
 - `id` : Unique ID of the law or standard
-- `title` : Title of the law or standard
-- `version_date` (optional): Current version date in your system
+- `identifier` : Unique identifier of the law or standard
+- `short_title` : Title of the law or standard
+- `version_date` : Current version date in your system
+- `last_change` : Date of last change in your system
+
 
 #### Response
 
 ```json
 {
-  "success": true,
+  "success": "boolean",
   "data": {
-    "id": "string",
-    "title": "string",
+    "id": "number/null",
+    "identifier": "string",
+    "short_title": "string",
     "current_version_date": "YYYY-MM-DD",
-    "has_newer_version": boolean,
+    "retracted": "boolean",
+    "source": "string",
+    "has_newer_version": "boolean",
     "changes": [
       {
-        "description": "string",
-        "section": "string",
-        "effective_date": "YYYY-MM-DD"
+        "change_note": "string",
+        "effective_date": "YYYY-MM-DD",
+        "link": "string"
       }
     ],
-    "last_updated": "YYYY-MM-DDTHH:MM:SSZ"
   }
 }
 ```
 
 **Response Fields:**
 - `id`: Unique ID of the law/standard
+- `identifier`: Unique identifier of the law/standard
 - `title`: Title of the law/standard
 - `current_version_date`: Current version date
+- `retracted`: Indicator if this law/standard was rectracted (not in effect anymore).
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
+- `source`: Link to standard/law url
 - `changes`: Array of changes implemented since the provided date
-- `last_updated`: Timestamp of the last update
 
-<!-- #### Change Types
+## Examples
 
-The API supports various change types:
-
-- `ADDITION`: New sections or provisions added
-- `MODIFICATION`: Existing provisions modified
-- `DELETION`: Provisions removed
-- `CLARIFICATION`: Clarifications or specifications
-- `REORGANIZATION`: Restructuring of sections -->
-
-<!-- ## Examples
+Further examples can be found in the [Example folder](./Examples/).
 
 ### Example 1: Query with ID
 
 **Request:**
-```bash
-curl -X POST https://api.normify.com/v1/standards/check \
-  -H "Authorization: Bearer YOUR_API_KEY" \
+```
+
+  curl -v -X POST https://app.normify.me/research/api/ultimate/ \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0NDg0MjY1LCJpYXQiOjE3NTE4OTIyNjUsImp0aSI6IjBhMDhmNGQ0NGExYzQ3YmE5NDM2OTczZTEwYWUwYjNlIiwidXNlcl9pZCI6NDl9.6yPf6x1A6gHxTc-hITgF2pFrOrzXag5aE9_cNvf0hJk" \
   -H "Content-Type: application/json" \
   -d '{
-    "id": "DIN_EN_ISO_9001_2015",
+    "identifier": "DIN_EN_ISO_9001_2015",
     "version_date": "2023-01-15"
   }'
 ```
-
-**Response:**
-```json
-{
-  "success": true,
-  "data": {
-    "id": "DIN_EN_ISO_9001_2015",
-    "title": "DIN EN ISO 9001:2015 - Quality Management Systems",
-    "current_version_date": "2023-12-01",
-    "has_newer_version": true,
-    "changes": [
-      {
-        "change_type": "MODIFICATION",
-        "description": "Update of quality management requirements",
-        "section": "Chapter 8.1",
-        "effective_date": "2023-12-01"
-      },
-      {
-        "change_type": "ADDITION",
-        "description": "New requirements for digital documentation",
-        "section": "Chapter 7.5",
-        "effective_date": "2023-12-01"
-      }
-    ],
-    "last_updated": "2023-12-01T10:30:00Z"
-  }
-}
-```
-
-### Example 2: Query with Title
-
-**Request:**
-```bash
-curl -X POST https://api.normify.com/v1/standards/check \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "General Data Protection Regulation",
-    "version_date": "2022-06-01"
-  }'
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "data": {
-    "id": "EU_2016_679",
-    "title": "General Data Protection Regulation (GDPR)",
-    "current_version_date": "2022-06-01",
-    "has_newer_version": false,
-    "changes": [],
-    "last_updated": "2022-06-01T00:00:00Z"
-  }
-}
-``` -->
 
 ## Error Handling
 
@@ -162,7 +128,6 @@ curl -X POST https://api.normify.com/v1/standards/check \
 - `400 Bad Request`: Invalid request (missing parameters, invalid date format)
 - `401 Unauthorized`: Invalid or missing API key
 - `404 Not Found`: Law or standard not found
-- `429 Too Many Requests`: Rate limit exceeded
 - `500 Internal Server Error`: Server error
 
 ### Error Response Format
@@ -183,11 +148,7 @@ curl -X POST https://api.normify.com/v1/standards/check \
 - `MISSING_PARAMETERS`: At least one parameter is required
 - `INVALID_DATE_FORMAT`: Invalid date format
 - `STANDARD_NOT_FOUND`: Law or standard not found
-- `RATE_LIMIT_EXCEEDED`: Too many requests in a short time
 
-## Rate Limiting
-
-The API is limited to 100 requests per minute per API key. A 429 status code will be returned when exceeded.
 
 ## Versioning
 
@@ -201,5 +162,5 @@ For questions or issues, please contact:
 
 ## Changelog
 
-### v1.0.0 (2024-01-01)
+### v1.0.0 (2025-07-07)
 - Initial API documentation release
