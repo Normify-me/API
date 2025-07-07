@@ -153,14 +153,3 @@ Further examples can be found in the [Example folder](./Examples/).
 ## Versioning
 
 The current API version is v1. All future changes will be provided through new versions to ensure backward compatibility.
-
-## Support
-
-For questions or issues, please contact:
-
-- **Email:** prang@normify.com
-
-## Changelog
-
-### v1.0.0 (2025-07-07)
-- Initial API documentation release
