@@ -1,4 +1,4 @@
-![Normify Logo](https://res.cloudinary.com/dvhsgzydx/image/upload/v1/static/images/favicons/normify_logo_cropped.33ab5f10799b.png)
+![Normify Logo](https://res.cloudinary.com/dvhsgzydx/image/upload/w_600/static/images/favicons/normify_logo_cropped.33ab5f10799b.png)
 
 # Normify API Documentation
 
@@ -153,8 +153,3 @@ Further examples can be found in the [Example folder](./Examples/).
 - `MISSING_PARAMETERS`: At least one parameter is required
 - `INVALID_DATE_FORMAT`: Invalid date format
 - `STANDARD_NOT_FOUND`: Law or standard not found
-
-
-## Versioning
-
-The current API version is v1. All future changes will be provided through new versions to ensure backward compatibility.
