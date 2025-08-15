@@ -89,6 +89,7 @@ Checks the current version dates and changes for a law or standard.
     "changes": [
       {
         "change_note": "string",
+        "retraction_note": "string",
         "effective_date": "YYYY-MM-DD",
         "link": "string"
       }
@@ -105,7 +106,7 @@ Checks the current version dates and changes for a law or standard.
 - `retracted`: Indicator if this law/standard was rectracted (not in effect anymore).
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
 - `source`: Link to standard/law url
-- `changes`: Array of changes implemented since the provided date
+- `changes`: Array of changes implemented since the provided date. The fields here are the change_note, the retraction_note, the effective date and the link for that change.
 
 ## Examples
 
