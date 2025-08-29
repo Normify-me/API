@@ -66,12 +66,21 @@ Checks the current version dates and changes for a law or standard.
 ```
 
 **Parameters:**
-- `id` : Unique ID of the law or standard
-- `identifier` : Unique identifier of the law or standard
-- `short_title` : Title of the law or standard
-- `version_date` : Current version date in your system
-- `last_change` : Date of last change in your system
+- `id` : Unique ID of the law or standard (required)
+- `identifier` : Unique identifier of the law or standard (required)
+- `short_title` : Title of the law or standard (not required but improves response quality)
+- `version_date` : Current version date in your system (not required)
+- `last_change` : Date of last change in your system (not required)
 
+The version_date and last_change are not required. If they are not sent then has_newer_version will always be true. 
+If both the version_date and last_change are sent the new version date is compared to both dates and the has_newer_version boolean is set accordingly:
+
+```
+if current_version_date > last_change OR current_version_date > version_date
+  has_newer_version = True
+else
+  has_newer_version = False
+```
 
 #### Response
 
@@ -102,7 +111,7 @@ Checks the current version dates and changes for a law or standard.
 - `id`: Unique ID of the law/standard
 - `identifier`: Unique identifier of the law/standard
 - `title`: Title of the law/standard
-- `current_version_date`: Current version date
+- `current_version_date`: Current version date (Publishing date/Version date)
 - `retracted`: Indicator if this law/standard was rectracted (not in effect anymore).
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
 - `source`: Link to standard/law url
