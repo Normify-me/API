@@ -1,4 +1,7 @@
-![Normify Logo](https://res.cloudinary.com/dvhsgzydx/image/upload/w_600/static/images/favicons/normify_logo_cropped.33ab5f10799b.png)
+
+<img width="200"  alt="pb_normify_grey" src="https://github.com/user-attachments/assets/b3777e1c-20a3-42e7-a7ff-c8af17c0ca94" />
+
+<img width="200"  alt="pb_normify_white" src="https://github.com/user-attachments/assets/56a453c7-5417-4e73-bc45-857c1a6c9062" />
 
 # Normify API Documentation
 
