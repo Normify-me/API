@@ -7,7 +7,7 @@
 
 ## Overview
 
-The Normify API allows you to retrieve current version dates and changes for laws and standards. This API serves to update the version dates of standards and laws in your database.
+The Normify API allows you to check for updates of versions and changes for laws and standards. This API serves to update the version dates of standards and laws in your database.
 
 ## Base URL
 
@@ -71,11 +71,11 @@ Checks the current version dates and changes for a law or standard.
 **Parameters:**
 - `id` : Unique ID of the law or standard (required)
 - `identifier` : Unique identifier of the law or standard (required)
-- `short_title` : Title of the law or standard (not required but improves response quality)
-- `version_date` : Current version date in your system (not required)
-- `last_change` : Date of last change in your system (not required)
+- `short_title` : Title of the law or standard (not required but improves response quality) (required)
+- `version_date` : Current version date in your system 
+- `last_change` : Date of last change in your system
 
-The version_date and last_change are not required. If they are not sent then has_newer_version will always be true. 
+One of version_date and last_change have to be submitted.
 If both the version_date and last_change are sent the new version date is compared to both dates and the has_newer_version boolean is set accordingly:
 
 ```
