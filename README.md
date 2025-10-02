@@ -90,6 +90,7 @@ else
 ```json
 {
   "success": "boolean",
+  "standard_found": "boolean",
   "data": {
     "id": "number/null",
     "identifier": "string",
@@ -111,6 +112,7 @@ else
 ```
 
 **Response Fields:**
+- `standard_found`: Indicates if the requested standard was found in the Nomrify database
 - `id`: Unique ID of the law/standard
 - `identifier`: Unique identifier of the law/standard
 - `title`: Title of the law/standard
