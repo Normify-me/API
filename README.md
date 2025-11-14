@@ -118,7 +118,7 @@ else
         "summary": "string",
         "recommendations": "string", 
         "legal_aspect": "string",
-.       "customer_name": "string",
+        "customer_name": "string",
         "customer_id": "id",
         "custom_fields": [dict{}],
         }
