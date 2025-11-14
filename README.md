@@ -64,7 +64,10 @@ Checks the current version dates and changes for a law or standard.
   "type": "string",
   "short_title": "string", 
   "version_date": "YYYY-MM-DD",
-  "last_change": "YYYY-MM-DD"
+  "last_change": "YYYY-MM-DD",
+  "summarize": "boolean",
+  "customer_name": "string",
+  "customer_description": "string",
 }
 ```
 
@@ -74,6 +77,7 @@ Checks the current version dates and changes for a law or standard.
 - `short_title` : Title of the law or standard (not required but improves response quality) (required)
 - `version_date` : Current version date in your system 
 - `last_change` : Date of last change in your system
+
 
 One of version_date and last_change have to be submitted.
 If both the version_date and last_change are sent the new version date is compared to both dates and the has_newer_version boolean is set accordingly:
@@ -107,7 +111,17 @@ else
         "link": "string"
       }
     ],
-  }
+    "summary": [
+        {
+        "document_level_desc": "string",
+        "document_level": "string",
+        "summary": "string",
+        "recommendations": "string", 
+        "legal_aspect": "string",
+.       "customer_name": "string",
+        "customer_id": "id",
+        "custom_fields": [dict{}],
+        }
 }
 ```
 
