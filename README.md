@@ -77,6 +77,9 @@ Checks the current version dates and changes for a law or standard.
 - `short_title` : Title of the law or standard (not required but improves response quality) (required)
 - `version_date` : Current version date in your system 
 - `last_change` : Date of last change in your system
+- `summarize` : If true, the summary dataset is returned.
+- `customer_name` : Send the customer name if you would like to get results catered to this specific customer.
+- `customer_description` : Send the customer description to improve the summary results for the customer.
 
 
 One of version_date and last_change have to be submitted.
@@ -116,7 +119,7 @@ else
         "document_level_desc": "string",
         "document_level": "string",
         "summary": "string",
-        "recommendations": "string", 
+        "recommendations": "List", 
         "legal_aspect": "string",
         "customer_name": "string",
         "customer_id": "id",
@@ -135,6 +138,15 @@ else
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
 - `source`: Link to standard/law url
 - `changes`: Array of changes implemented since the provided date. The fields here are the change_note, the retraction_note, the effective date and the link for that change.
+- `summary`: List of dictionaries
+- `document_level_desc`: Description of document level (Full text, paragraph, section, etc.)
+- `document_level`: Document level (Full text, paragraph, section, etc.); i.e. 1 or A or IV, etc.
+- `summary`: Summary of the document
+- `recommendations`: List of dicts with recommendations. The dict is of the format {'customer': 'string', 'recommendation', : 'string'}
+- `legal_aspect`: Legal aspect
+- `customer_name`: Customer name for which a request was done
+- `customer_id`: Customer database id for which the request was done
+- `custom_fields`: Please ask the admin for your custom fields.
 
 ## Examples
 
