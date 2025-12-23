@@ -103,7 +103,8 @@ else
     "identifier": "string",
     "short_title": "string",
     "current_version_date": "YYYY-MM-DD",
-    "created_by_ai": True
+    "matched_by_similarity": "boolean",
+    "created_by_ai": "boolean",
     "retracted": "boolean",
     "source": "string",
     "has_newer_version": "boolean",
@@ -135,6 +136,7 @@ else
 - `identifier`: Unique identifier of the law/standard
 - `title`: Title of the law/standard
 - `current_version_date`: Current version date (Publishing date/Version date)
+- `matched_by_similarity`: Indicator if the standard was found in the database but the identifier did not match 100% and the match was done by a similarity analysis (please check this result manually if the match was correct) 
 - `created_by_ai`: Indicator if the standard was created by AI in the database
 - `retracted`: Indicator if this law/standard was rectracted (not in effect anymore).
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
