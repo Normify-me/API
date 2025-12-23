@@ -98,12 +98,13 @@ else
 {
   "success": "boolean",
   "standard_found": "boolean",
+  "matched_by_similarity": "boolean",
+  "similarity_score": "Float",
   "data": {
     "id": "number/null",
     "identifier": "string",
     "short_title": "string",
     "current_version_date": "YYYY-MM-DD",
-    "matched_by_similarity": "boolean",
     "created_by_ai": "boolean",
     "retracted": "boolean",
     "source": "string",
@@ -132,11 +133,12 @@ else
 
 **Response Fields:**
 - `standard_found`: Indicates if the requested standard was found in the Nomrify database
+- `matched_by_similarity`: Indicator if the standard was found in the database but the identifier did not match 100% and the match was done by a similarity analysis (please check this result manually if the match was correct)
+- `similarity_score`: Float between 0 and 1 that shows the similarity between the name_short of the request and the name/name_short in the database when the standard is matched via similarity matching. A value of 1 indicates perfect similarity.
 - `id`: Unique ID of the law/standard
 - `identifier`: Unique identifier of the law/standard
 - `title`: Title of the law/standard
 - `current_version_date`: Current version date (Publishing date/Version date)
-- `matched_by_similarity`: Indicator if the standard was found in the database but the identifier did not match 100% and the match was done by a similarity analysis (please check this result manually if the match was correct) 
 - `created_by_ai`: Indicator if the standard was created by AI in the database
 - `retracted`: Indicator if this law/standard was rectracted (not in effect anymore).
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
