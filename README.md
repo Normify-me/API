@@ -145,6 +145,7 @@ else
         "document_level_number": "int"
         "document_level_description": "string"
         "version_date": "string",
+        "comparison_url": "string",
         }
     ],
 }
@@ -184,7 +185,7 @@ else
 - `document_level`: Document level (Full text, paragraph, section, etc.); i.e. 1 or A or IV, etc.
 - `document_level_number`: Document level number, which shows the order of the texts.
 - `version_date`: Version date of the text in YYYY-MM-DD format
-- 
+- `comparison_url`: If a previous version of this text is available, a comparison overview is shown at this url.
 
 ## Examples
 
