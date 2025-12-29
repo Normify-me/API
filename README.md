@@ -68,6 +68,7 @@ Checks the current version dates and changes for a law or standard.
   "summarize": "boolean",
   "customer_name": "string",
   "customer_description": "string",
+  "return_standardtexts": "boolean",
 }
 ```
 
@@ -80,6 +81,7 @@ Checks the current version dates and changes for a law or standard.
 - `summarize` : If true, the summary dataset is returned.
 - `customer_name` : Send the customer name if you would like to get results catered to this specific customer.
 - `customer_description` : Send the customer description to improve the summary results for the customer.
+- `return_standardtexts` : If true then the full text and the texts of the paragraphs, sections, etc. of the requested law or standard is returned.
 
 
 One of version_date and last_change have to be submitted.
@@ -128,6 +130,23 @@ else
         "customer_id": "id",
         "custom_fields": [dict{}],
         }
+     ],
+     "standardtexts": [
+        {
+        "id": "int",
+        "text_orig_language": "string",
+        "text_orig": "string"
+        "text_de": "string"
+        "text_en": "string"
+        "text_orig_markdown": "string"
+        "text_de_markdown": "string"
+        "text_en_markdown": "string"
+        "document_level": "string"
+        "document_level_number": "int"
+        "document_level_description": "string"
+        "version_date": "string",
+        }
+    ],
 }
 ```
 
@@ -153,6 +172,19 @@ else
 - `customer_name`: Customer name for which a request was done
 - `customer_id`: Customer database id for which the request was done
 - `custom_fields`: Please ask the admin for your custom fields.
+- standardtexts: List of dictionaries
+- `text_orig_language`: Language of the original text (i.e. AR, PR, etc.).
+- `text_orig`: Text of the law or standard in the original language (if it is not German or English)
+- `text_orig_markdown`: Markdowntext of the law or standard in the original language (if it is not German or English)
+- `text_de`: Text of the law or standard in German
+- `text_de_markdown`: Markdowntext of the law or standard in German
+- `text_en`: Text of the law or standard in English
+- `text_en_markdown`: Markdowntext of the law or standard in English
+- `document_level_description`: Description of document level (Full text, paragraph, section, etc.)
+- `document_level`: Document level (Full text, paragraph, section, etc.); i.e. 1 or A or IV, etc.
+- `document_level_number`: Document level number, which shows the order of the texts.
+- `version_date`: Version date of the text in YYYY-MM-DD format
+- 
 
 ## Examples
 
