@@ -121,6 +121,7 @@ else
         "link": "string"
       }
     ],
+    "category": "string",
     "summary": [
         {
         "document_level_desc": "string",
@@ -168,6 +169,7 @@ else
 - `has_newer_version`: Boolean indicating whether a newer version than the provided date is available
 - `source`: Link to standard/law url
 - `changes`: Array of changes implemented since the provided date. The fields here are the change_note, the retraction_note, the effective date and the link for that change.
+- `category`: Category of this law/standard
 - `summary`: List of dictionaries
 - `document_level_desc`: Description of document level (Full text, paragraph, section, etc.)
 - `document_level`: Document level (Full text, paragraph, section, etc.); i.e. 1 or A or IV, etc.
