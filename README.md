@@ -110,6 +110,7 @@ else
     "normify_identifier": "string",
     "normify_link": "string",
     "short_title": "string",
+    "title": "string",
     "current_version_date": "YYYY-MM-DD",
     "created_by_ai": "boolean",
     "retracted": "boolean",
@@ -164,6 +165,7 @@ else
 - `identifier`: Identifier of the law/standard
 - `normify_identifier`: Unique normify identifier of the law/standard,
 - `normify_link`: Link to the law/standard on Normify,
+- `short_title`: Short title of the law/standard
 - `title`: Title of the law/standard
 - `current_version_date`: Current version date (Publishing date/Version date)
 - `created_by_ai`: Indicator if the standard was created by AI in the database
