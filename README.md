@@ -107,6 +107,12 @@ else
   "data": {
     "id": "number/null",
     "identifier": "string",
+    "legal_type": "string",
+    "legal_topic": "string",
+    "relationships": "string",
+    "application_description": "string",
+    "in_force_date": "YYYY-MM-DD",
+    "region_identifier": "string",
     "normify_identifier": "string",
     "normify_link": "string",
     "short_title": "string",
@@ -163,6 +169,12 @@ else
 - `similarity_score`: Float between 0 and 1 that shows the similarity between the name_short of the request and the name/name_short in the database when the standard is matched via similarity matching. A value of 1 indicates perfect similarity.
 - `id`: Unique ID of the law/standard
 - `identifier`: Identifier of the law/standard
+- `legal_type`: Type of the law/standard (i.e. Abkommen, Norm, Richtlinie, etc.),
+- `legal_topic`: General topic category of the law/standard (i.e. Abfall, Gefahrenabwehr, etc.),
+- `relationships`: Description of relationships to other laws and standards,
+- `application_description`: Description of the application of this law/standard,
+- `in_force_date`: Last in force date of the law/standard,
+- `region_identifier`: Region identifier where this law/standard is applicable,
 - `normify_identifier`: Unique normify identifier of the law/standard,
 - `normify_link`: Link to the law/standard on Normify,
 - `short_title`: Short title of the law/standard
